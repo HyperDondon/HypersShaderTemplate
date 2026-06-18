@@ -2,9 +2,8 @@
 
 uniform sampler2D Sampler0;
 
-in float vertexDistance;
 #moj_import <multiversion.glsl>
-
+in float vertexDistance;
 in vec4 vertexColor;
 in vec2 texCoord0;
 

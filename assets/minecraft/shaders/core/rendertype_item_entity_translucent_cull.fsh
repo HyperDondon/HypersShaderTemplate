@@ -2,15 +2,13 @@
 
 uniform sampler2D Sampler0;
 
+#moj_import <multiversion.glsl>
 in float vertexDistance;
 in vec4 vertexColor;
 in vec2 texCoord0;
 in vec2 texCoord1;
-in vec4 baseColor;
-
-#moj_import <multiversion.glsl>
-
 in vec3 vertexPosition;
+in vec4 baseColor;
 
 out vec4 fragColor;
 

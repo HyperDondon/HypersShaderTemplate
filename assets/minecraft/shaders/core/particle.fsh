@@ -2,14 +2,14 @@
 
 uniform sampler2D Sampler0;
 
-in float vertexDistance;
+#moj_import <multiversion.glsl>
 in vec2 texCoord0;
 in vec4 vertexColor;
+in float vertexDistance;
 in vec3 vertexPosition;
 
 out vec4 fragColor;
 
-#moj_import <multiversion.glsl>
 #moj_import <utils.glsl>
 #moj_import <effects/particle.glsl>
 #moj_import <imports/particle.glsl>

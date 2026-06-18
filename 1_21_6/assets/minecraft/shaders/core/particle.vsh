@@ -15,6 +15,7 @@ out float sphericalVertexDistance;
 out float cylindricalVertexDistance;
 out vec2 texCoord0;
 out vec4 vertexColor;
+out float vertexDistance; //dummy here
 out vec3 vertexPosition;
 
 void main() {
@@ -24,5 +25,6 @@ void main() {
     cylindricalVertexDistance = fog_cylindrical_distance(Position);
     texCoord0 = UV0;
     vertexColor = Color * texelFetch(Sampler2, UV2 / 16, 0);
+    vertexDistance = 0.0; //dummy
     vertexPosition = Position;
 }

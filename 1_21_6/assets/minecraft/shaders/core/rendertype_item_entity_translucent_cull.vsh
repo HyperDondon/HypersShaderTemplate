@@ -17,6 +17,7 @@ uniform sampler2D Sampler2;
 
 out float sphericalVertexDistance;
 out float cylindricalVertexDistance;
+out float vertexDistance; //dummy here
 out vec4 vertexColor;
 out vec2 texCoord0;
 out vec2 texCoord1;
@@ -29,6 +30,7 @@ void main() {
 
     sphericalVertexDistance = fog_spherical_distance(Position);
     cylindricalVertexDistance = fog_cylindrical_distance(Position);
+    vertexDistance = 0.0; //dummy
     vertexPosition = Position;
     baseColor = Color;
     vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, Normal, Color) * texelFetch(Sampler2, UV2 / 16, 0);
