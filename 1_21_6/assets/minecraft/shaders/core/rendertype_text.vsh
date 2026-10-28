@@ -74,8 +74,8 @@ void isTextShadow() {
 #moj_import <utils.glsl>
 #moj_import <effects/text.glsl>
 #moj_import <effects/font.glsl>
-#moj_import <imports/text.glsl>
-#moj_import <imports/font.glsl>
+#moj_import <legacy-imports/text.glsl>
+#moj_import <legacy-imports/font.glsl>
 
 void main() {
 	isTextShadow();

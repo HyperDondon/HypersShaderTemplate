@@ -2,7 +2,7 @@
 
 uniform sampler2D Sampler0;
 
-#moj_import <multiversion.glsl>
+#moj_import <fog.glsl>
 in float vertexDistance;
 in vec4 vertexColor;
 in vec2 texCoord0;
@@ -52,8 +52,8 @@ Text text;
 #moj_import <utils.glsl>
 #moj_import <effects/text.glsl>
 #moj_import <effects/font.glsl>
-#moj_import <imports/text.glsl>
-#moj_import <imports/font.glsl>
+#moj_import <legacy-imports/text.glsl>
+#moj_import <legacy-imports/font.glsl>
 
 void main() {
 	text.isShadow = floatIsShadow > 0.5;

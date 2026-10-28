@@ -3,23 +3,59 @@
     "pack_format": 46,
     "supported_formats": {
       "min_inclusive": 44,
-      "max_inclusive": 75
+      "max_inclusive": 97
     },
     "min_format": 44,
-    "max_format": 75,
+    "max_format": 97,
     
     "description": "skibidi"
   },
   "overlays": {
     "entries": [
       {
+        "directory": "1_21_4",
+        "formats": {
+          "min_inclusive": 44,
+          "max_inclusive": 60
+        },
+        "min_format": 44,
+        "max_format": 60
+      },
+      {
         "directory": "1_21_6",
         "formats": {
           "min_inclusive": 47,
-          "max_inclusive": 75
+          "max_inclusive": 101
         },
-      "min_format": 47,
-      "max_format": 75
+        "min_format": 47,
+        "max_format": 101
+      },
+      {
+        "directory": "26_1",
+        "formats": {
+          "min_inclusive": 80,
+          "max_inclusive": 101
+        },
+        "min_format": 80,
+        "max_format": 101
+      },
+      {
+        "directory": "26_2",
+        "formats": {
+          "min_inclusive": 88,
+          "max_inclusive": 101
+        },
+        "min_format": 88,
+        "max_format": 101
+      },
+      {
+        "directory": "26_3",
+        "formats": {
+          "min_inclusive": 97.1,
+          "max_inclusive": 101
+        },
+        "min_format": 97.1,
+        "max_format": 101
       }
     ]
   }
