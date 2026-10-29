@@ -7,8 +7,8 @@ in ivec2 UV2;
 
 uniform sampler2D Sampler2;
 
-#moj_import <multi/vertex.glsl>
-#moj_import <multi/lightmap.glsl>
+#moj_import <multiversion/vertex.glsl>
+#moj_import <multiversion/lightmap.glsl>
 
 out vec2 texCoord0;
 out vec4 vertexColor;

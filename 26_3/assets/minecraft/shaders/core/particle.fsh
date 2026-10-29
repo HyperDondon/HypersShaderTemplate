@@ -19,7 +19,7 @@ layout(location = 0) out vec4 fragColor;
 #endif
 
 #include <depth.glsl>
-#include <multi/apply_fog.glsl>
+#include <multiversion/apply_fog.glsl>
 #include <utils.glsl>
 #include <effects/particle.glsl>
 #include <new-imports/particle.glsl>

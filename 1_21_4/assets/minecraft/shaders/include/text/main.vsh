@@ -9,7 +9,7 @@ in vec3 Normal;
 uniform sampler2D Sampler0;
 uniform sampler2D Sampler2;
 
-#moj_import <multi/lightmap.glsl>
+#moj_import <multiversion/lightmap.glsl>
 
 out vec4 vertexColor;
 out vec2 texCoord0;
@@ -59,7 +59,7 @@ Text text;
 #moj_import <effects/font.glsl>
 #moj_import <legacy-imports/text.glsl>
 #moj_import <legacy-imports/font.glsl>
-#moj_import <text/multi.vsh>
+#moj_import <text/multiversion.vsh>
 
 void main() {
 	onMain();

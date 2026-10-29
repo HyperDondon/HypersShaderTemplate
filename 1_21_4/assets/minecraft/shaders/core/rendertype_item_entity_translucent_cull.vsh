@@ -9,9 +9,9 @@ in vec3 Normal;
 
 uniform sampler2D Sampler2;
 
-#moj_import <multi/vertex.glsl>
-#moj_import <multi/light.glsl>
-#moj_import <multi/lightmap.glsl>
+#moj_import <multiversion/vertex.glsl>
+#moj_import <multiversion/light_directions.glsl>
+#moj_import <multiversion/lightmap.glsl>
 
 out vec4 vertexColor;
 out vec2 texCoord0;

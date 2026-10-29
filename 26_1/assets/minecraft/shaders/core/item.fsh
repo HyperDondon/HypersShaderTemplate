@@ -2,7 +2,7 @@
 
 uniform sampler2D Sampler0;
 
-#moj_import <multi/fog.glsl>
+#moj_import <multiversion/apply_fog.glsl>
 in vec4 vertexColor;
 in vec4 lightMapColor;
 in vec4 overlayColor;
