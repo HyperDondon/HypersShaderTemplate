@@ -3,7 +3,7 @@
 uniform sampler2D Sampler0;
 
 in float vertexDistance;
-#moj_import <fog.glsl>
+#moj_import <multi_fog.glsl>
 in vec4 vertexColor;
 in vec2 texCoord0;
 in vec2 texCoord1;
@@ -16,11 +16,12 @@ out vec4 fragColor;
 #moj_import <dithering.glsl>
 #moj_import <effects/model.glsl>
 #moj_import <legacy-imports/model.glsl>
+#moj_import <depth.glsl>
 
 void main() {
     vec2 screenPosNormalized = gl_FragCoord.xy / ScreenSize;
     vec3 worldDirection = normalize(vertexPosition);
-    gl_FragDepth = gl_FragCoord.z;
+    setupDepth();
 
     #moj_import <configs/model.glsl>
 

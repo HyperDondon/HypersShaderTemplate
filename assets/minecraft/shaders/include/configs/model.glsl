@@ -10,7 +10,7 @@ MODEL_SHADER(1) {
 }
 
 MODEL_SHADER(2) {
-    fragColor = gradientShaderImage(worldDirection);
+    fragColor = gradientSimpleShaderImage(worldDirection);
     return;
 }
 

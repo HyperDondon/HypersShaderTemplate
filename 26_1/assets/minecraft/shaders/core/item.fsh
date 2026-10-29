@@ -20,7 +20,7 @@ out vec4 fragColor;
 void main() {
     vec2 screenPosNormalized = gl_FragCoord.xy / ScreenSize;
     vec3 worldDirection = normalize(vertexPosition);
-    writeDepth();
+    setupDepth()
 
     #moj_import <configs/model.glsl>
 

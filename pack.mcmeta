@@ -3,10 +3,10 @@
     "pack_format": 46,
     "supported_formats": {
       "min_inclusive": 44,
-      "max_inclusive": 97
+      "max_inclusive": 101
     },
     "min_format": 44,
-    "max_format": 97,
+    "max_format": 101,
     
     "description": "skibidi"
   },
@@ -16,10 +16,10 @@
         "directory": "1_21_4",
         "formats": {
           "min_inclusive": 44,
-          "max_inclusive": 60
+          "max_inclusive": 79
         },
         "min_format": 44,
-        "max_format": 60
+        "max_format": 79
       },
       {
         "directory": "1_21_6",
@@ -51,10 +51,10 @@
       {
         "directory": "26_3",
         "formats": {
-          "min_inclusive": 97.1,
+          "min_inclusive": 97,
           "max_inclusive": 101
         },
-        "min_format": 97.1,
+        "min_format": 97,
         "max_format": 101
       }
     ]

@@ -2,7 +2,7 @@
 
 uniform sampler2D Sampler0;
 
-#moj_import <fog.glsl>
+#moj_import <multi_fog.glsl>
 in float vertexDistance;
 in vec4 vertexColor;
 in vec2 texCoord0;

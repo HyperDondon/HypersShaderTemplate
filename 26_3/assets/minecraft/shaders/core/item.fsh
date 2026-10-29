@@ -32,12 +32,12 @@ layout(location = 8) in vec4 baseColor;
 layout(location = 0) out vec4 fragColor;
 #endif
 
+#include <multi_fog.glsl>
 #include <utils.glsl>
 #include <dithering.glsl>
 #include <effects/model.glsl>
 #include <new-imports/model.glsl>
 #include <depth.glsl>
-#include <multi_fog.glsl>
 
 #ifndef OIT_ALPHA_ONLY
 vec4 calculateFinalColor(vec4 color) {
@@ -63,7 +63,7 @@ vec4 calculateFinalColor(vec4 color) {
 
 /*
     when a config shader is done, it shall set the color and return.
-    the fragColor name is used to keep compatiblity between multiple versions.
+    the fragColor name is reused to keep compatiblity between multiple versions.
     if shall the texture not be detected, the configColor variable will stay vec4(-1.0).
     if a change occured, apply the change and return.
 */
@@ -75,7 +75,7 @@ void loadConfigs(inout vec4 fragColor) {
 }
 
 void main() {
-    writeDepth();
+    setupDepth();
 
     vec4 configColor = vec4(-1.0);
     loadConfigs(configColor);
