@@ -4,7 +4,7 @@
 
 Combines [Ult-Effects](https://github.com/Dystortedd/Ult-Effects) and [SkyboxTemplate](https://github.com/Dragoncraft000/SkyboxTemplate)
 
-Supports 1.21.4-1.21.11
+Supports 1.21.4-26.3
 Title support doesn't work on 1.21.6+
 
 # Credits
