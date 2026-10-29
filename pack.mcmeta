@@ -16,10 +16,10 @@
         "directory": "1_21_4",
         "formats": {
           "min_inclusive": 44,
-          "max_inclusive": 79
+          "max_inclusive": 101
         },
         "min_format": 44,
-        "max_format": 79
+        "max_format": 101
       },
       {
         "directory": "1_21_6",

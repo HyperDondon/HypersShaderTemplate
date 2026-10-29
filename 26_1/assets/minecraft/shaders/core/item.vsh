@@ -15,9 +15,13 @@ in vec3 Normal;
 
 uniform sampler2D Sampler2;
 
+#moj_import <item/overlay.glsl>
+
 out float sphericalVertexDistance;
 out float cylindricalVertexDistance;
 out vec4 vertexColor;
+out vec4 lightMapColor;
+out vec4 overlayColor;
 out vec2 texCoord0;
 out vec3 vertexPosition;
 out vec4 baseColor;
@@ -28,7 +32,9 @@ void main() {
     sphericalVertexDistance = fog_spherical_distance(Position);
     cylindricalVertexDistance = fog_cylindrical_distance(Position);
 
-    vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, Normal, Color) * sample_lightmap(Sampler2, UV2);
+    vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, Normal, Color);
+    lightMapColor = sample_lightmap(Sampler2, UV2);
+    overlayColor = sampleOverlay();
 
     texCoord0 = UV0;
 

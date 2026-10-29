@@ -1,10 +1,11 @@
 #version 330
 
-#moj_import <multi_fog.glsl>
-
 uniform sampler2D Sampler0;
 
+#moj_import <multi/fog.glsl>
 in vec4 vertexColor;
+in vec4 lightMapColor;
+in vec4 overlayColor;
 in vec2 texCoord0;
 in vec3 vertexPosition;
 in vec4 baseColor;
@@ -20,7 +21,7 @@ out vec4 fragColor;
 void main() {
     vec2 screenPosNormalized = gl_FragCoord.xy / ScreenSize;
     vec3 worldDirection = normalize(vertexPosition);
-    setupDepth()
+    setupDepth();
 
     #moj_import <configs/model.glsl>
 
@@ -30,5 +31,8 @@ void main() {
     }
 
     color *= vertexColor * ColorModulator;
+    color.rgb = mix(overlayColor.rgb, color.rgb, overlayColor.a);
+    color *= lightMapColor;
+
     fragColor = apply_fog(color, sphericalVertexDistance, cylindricalVertexDistance, FogEnvironmentalStart, FogEnvironmentalEnd, FogRenderDistanceStart, FogRenderDistanceEnd, FogColor);
 }

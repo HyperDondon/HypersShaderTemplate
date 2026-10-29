@@ -1,5 +1,7 @@
 #moj_import <fog.glsl>
 
+in float vertexDistance;
+
 uniform vec4 ColorModulator;
 uniform float FogStart;
 uniform float FogEnd;

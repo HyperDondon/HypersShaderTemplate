@@ -17,6 +17,7 @@ layout(location = 0) out float sphericalVertexDistance;
 layout(location = 1) out float cylindricalVertexDistance;
 layout(location = 2) out vec2 texCoord0;
 layout(location = 3) out vec4 vertexColor;
+layout(location = 4) out vec3 vertexPosition;
 
 void main() {
     gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
@@ -25,4 +26,5 @@ void main() {
     cylindricalVertexDistance = fog_cylindrical_distance(Position);
     texCoord0 = UV0;
     vertexColor = Color * sample_lightmap(Sampler2, UV2);
+    vertexPosition = Position;
 }

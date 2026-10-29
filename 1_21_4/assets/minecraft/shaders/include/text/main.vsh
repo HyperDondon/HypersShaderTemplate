@@ -1,23 +1,17 @@
-#version 150
+#moj_import <text/uniforms.glsl>
 
-#moj_import <fog.glsl>
-#moj_import <globals.glsl>
-#moj_import <dynamictransforms.glsl>
-#moj_import <projection.glsl>
 in vec3 Position;
 in vec4 Color;
 in vec2 UV0;
 in ivec2 UV2;
 in vec3 Normal;
 
-
 uniform sampler2D Sampler0;
 uniform sampler2D Sampler2;
 
-out float sphericalVertexDistance;
-out float cylindricalVertexDistance;
+#moj_import <multi/lightmap.glsl>
+
 out vec4 vertexColor;
-out float vertexDistance;
 out vec2 texCoord0;
 
 out vec3 glCornerTex1;
@@ -60,39 +54,26 @@ struct Text {
 };
 Text text;
 
-void isTextShadow() {
-	is3D = 0.0;
-	float comparatorIsShadow = 0.02;
-	if(Position.z > 2400 && Position.z < 2400.05) comparatorIsShadow = 0.05;
-
-    floatIsShadow = fract(Position.z) < comparatorIsShadow ? 0.0 : 1.0;
-
-    if(Position.z == 0.0 && (floatIsShadow > 0.5)) floatIsShadow = 0.0;
-	if(ProjMat[3][3] == 0.0) floatIsShadow = 0.0; is3D = 1.0;
-}
-
 #moj_import <utils.glsl>
 #moj_import <effects/text.glsl>
 #moj_import <effects/font.glsl>
 #moj_import <legacy-imports/text.glsl>
 #moj_import <legacy-imports/font.glsl>
+#moj_import <text/multi.vsh>
 
 void main() {
+	onMain();
 	isTextShadow();
 
 	vec4 pos = vec4(Position, 1.0);
-    vertexDistance = length((ModelViewMat * vec4(Position, 1.0)).xyz);
 	baseColor = Color;
-	lightColor = texelFetch(Sampler2, UV2 / 16, 0);
+	lightColor = sampleLightmap(Sampler2, UV2);
     vertexColor = vec4(1.0);
 
 	text.id = floor((pos.y + 1000.0) / 5000.0);
 	pos.y = mod(pos.y + 1000.0, 5000.0) - 1000.0;
 
 	gl_Position = ProjMat * ModelViewMat * pos;
-
-    sphericalVertexDistance = fog_spherical_distance(Position);
-    cylindricalVertexDistance = fog_cylindrical_distance(Position);
 
     text.alphaRead = baseColor.a;
 	text.glPos = gl_Position;

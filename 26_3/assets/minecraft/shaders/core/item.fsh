@@ -32,12 +32,12 @@ layout(location = 8) in vec4 baseColor;
 layout(location = 0) out vec4 fragColor;
 #endif
 
-#include <multi_fog.glsl>
+#include <depth.glsl>
+#include <multi/apply_fog.glsl>
 #include <utils.glsl>
 #include <dithering.glsl>
 #include <effects/model.glsl>
 #include <new-imports/model.glsl>
-#include <depth.glsl>
 
 #ifndef OIT_ALPHA_ONLY
 vec4 calculateFinalColor(vec4 color) {
@@ -69,14 +69,13 @@ vec4 calculateFinalColor(vec4 color) {
 */
 
 void loadConfigs(inout vec4 fragColor) {
+    setupDepth();
     vec2 screenPosNormalized = gl_FragCoord.xy / ScreenSize;
     vec3 worldDirection = normalize(vertexPosition);
     #include <configs/model.glsl>
 }
 
 void main() {
-    setupDepth();
-
     vec4 configColor = vec4(-1.0);
     loadConfigs(configColor);
     if (configColor != vec4(-1.0)) {
