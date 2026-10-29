@@ -29,7 +29,6 @@ out float is3D;
 out float fontID;
 out float floatIsShadow;
 out vec4 baseColor;
-out vec4 lightColor;
 out float isMap;
 
 struct Text {
@@ -67,8 +66,14 @@ void main() {
 
 	vec4 pos = vec4(Position, 1.0);
 	baseColor = Color;
-	lightColor = sampleLightmap(Sampler2, UV2);
-    vertexColor = vec4(1.0);
+
+	// in 26.2, sampleLightmap just returns the mbappe special in guis and when text is see through.
+	// matches in https://mcasset.cloud/26.2/assets/minecraft/shaders/core/text.fsh
+	#if defined(IS_GUI) || defined(IS_SEE_THROUGH)
+	vertexColor = vec4(1.0);
+	#else
+	vertexColor = sampleLightmap(Sampler2, UV2);
+	#endif
 
 	text.id = floor((pos.y + 1000.0) / 5000.0);
 	pos.y = mod(pos.y + 1000.0, 5000.0) - 1000.0;

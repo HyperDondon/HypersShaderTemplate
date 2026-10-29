@@ -19,7 +19,6 @@ in float is3D;
 in float fontID;
 in float floatIsShadow;
 in vec4 baseColor;
-in vec4 lightColor;
 in float isMap;
 
 out vec4 fragColor;
@@ -96,9 +95,9 @@ void main() {
 
 	vec4 textureSample = texture(Sampler0, text.uv);
 
-	vec4 color = textureSample * text.color * ColorModulator * lightColor;
+	vec4 color = textureSample * text.color * ColorModulator * vertexColor;
 
-	if(isMap > 0.5) color = texture(Sampler0, texCoord0) * baseColor * lightColor * ColorModulator;
+	if(isMap > 0.5) color = texture(Sampler0, texCoord0) * baseColor * vertexColor * ColorModulator;
     if(color.a < 1 / 255.) discard;
     fragColor = applyFog(color, 1);
 }
